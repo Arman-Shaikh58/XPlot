@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --color-main: #fafbff;
+  --color-main-light: #f7faff;
+  --color-main-dark: #313131;
+  --color-light-dark: #515151;
+}
+@layer utilities {
+  .bg-main {
+    background-color: var(--color-main);
+  }
+  .bg-light-dark{
+    background-color: var(--color-light-dark);
+  }
+  .text-main {
+    color: var(--color-main);
+  }
+
+  .bg-main-light {
+    background-color: var(--color-main-light);
+  }
+
+  .bg-main-dark {
+    background-color: var(--color-main-dark);
+  }
+}
+
+.my-btn{
+  position: relative;
+  overflow: hidden;
+}
+.my-btn::after{
+  position: absolute;
+  content: "";
+  height:70px;
+  width: 200%;
+  top:-100;
+  left: -150%;
+  background-color:#a5a3a3;
+  z-index: 100;
+  transform:rotateZ(45deg);
+  transition: 700ms ease-in-out;
+}
+.my-btn:hover::after{
+  left: 100%;
+}
