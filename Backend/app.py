@@ -17,7 +17,11 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[ORIGINS,LOCAL_FRONT_END],
+    allow_origins=[
+        ORIGINS,
+        LOCAL_FRONT_END,
+        "http://localhost:5173",         # Local dev
+        "https://xplot.netlify.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
