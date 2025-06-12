@@ -5,7 +5,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import mpld3
 from scipy.interpolate import make_interp_spline
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+
+ORIGINS=os.getenv("FRONTEND")
 
 app = FastAPI()
 
@@ -89,4 +94,4 @@ async def send_plot(request: Request):
     
 if __name__=="__main__":
     import uvicorn
-    uvicorn.run(app,host="0.0.0.0",port=8000)
+    uvicorn.run(app,host="0.0.0.0",port=5000)
