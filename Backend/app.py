@@ -11,12 +11,13 @@ import os
 load_dotenv()
 
 ORIGINS=os.getenv("FRONTEND")
+LOCAL_FRONT_END=os.getenv("LOCAL_FRONT_END")
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[ORIGINS,LOCAL_FRONT_END],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]

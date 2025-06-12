@@ -6,6 +6,10 @@ import {
 } from "@/components/ui/toggle-group";
 
 export default function Home() {
+    const BACKEND_GET_PLOT_URL = import.meta.env.DEV
+        ? import.meta.env.VITE_LOCAL_URL
+        : import.meta.env.VITE_GET_PLOT_URL;
+
     const [isplot, setIsplot] = useState(false);
     const [plotComponent, setPlotComponent] = useState(null);
     const [eqdata, setEqdata] = useState({
@@ -33,7 +37,7 @@ export default function Home() {
         setIsplot(false); // optional: reset
 
         try {
-            const res = await fetch("http://localhost:8000/getplot", {
+            const res = await fetch(BACKEND_GET_PLOT_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
